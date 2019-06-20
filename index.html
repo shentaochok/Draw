@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/index.js"></script>
+        <script>
+            var html = document.getElementsByTagName("html")[0];
+            var rootResize = function () {
+                var winClient = document.documentElement.clientWidth;
+                var fontSize = winClient < 480 ? winClient / 16 : 30;
+                if (fontSize < 20) {
+                    fontSize = 20;
+                }
+                html.style.fontSize = fontSize + "px";
+            }
+            rootResize();
+        </script>
+    </head>
+
+    <body>
+        <div class="main">
+            <div class="active">
+                <div class="rotate_title"><img src="images/rotate_title.png" alt=""></div>
+                <div class="rotate">
+                    <div class="zd_round"><img src="images/zd.png" alt=""></div>
+                    <div class="pointer"><img src="images/pointer.png" alt="" width="100%"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            new Draw({
+                el: ".zd_round img",//转动的元素
+                btn:".pointer", //点击转动的元素
+                count: 3, //转盘转动的圈数,
+                chance: {
+                    1: "40%",
+                    5: "40%", //指定抽奖概率，其余则平分
+                },
+                num:8,//转盘的总个数
+                innerTime:4000, //转盘转动的时间
+                endFunc:function(pos){
+                    console.log(pos)
+                } //转盘动画结束后的回调函数
+            })
+        </script>
+    </body>
+
+</html>
