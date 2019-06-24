@@ -50,7 +50,7 @@
             var btn = $_(btn);
             var el = $_(el);
             btn.onclick = () => {
-                this.aniamte(el, endPos);
+                this.aniamte(el, endPos,innerTime);
             }
             el.addEventListener("transitionend", this.end.bind(this,endFunc), false);
         }
